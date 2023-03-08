@@ -1,4 +1,6 @@
-﻿namespace LINQ
+﻿using System;
+
+namespace LINQ
 {
     internal class Program
     {
@@ -14,6 +16,10 @@
             JoinLINQ();
             GroupJoinLINQ();
             SelectLINQ();
+            AllAndAnyLINQ();
+            ContainsLINQ();
+            AggregateLINQ();
+            AvarageLINQ();
         }
 
         public static void WhereLINQ()
@@ -148,6 +154,50 @@
 
             bool areAllPeopleTeenagers = PeopleList.peoples
                 .All(x => x.Age > 18);
+            //k]ik PeopleList-i all olevad isikud peavad olema alla 18 a vanused
+
+            Console.WriteLine(areAllPeopleTeenagers);
+
+            Console.WriteLine("Any LINQ");
+            bool isAnyPersonTeenager = PeopleList.peoples
+                .Any(x => x.Age > 18);
+            //kasvõi üks  andmerida vastab tingimustele, siis tuelb vastus
+            Console.WriteLine(isAnyPersonTeenager);
+        }
+
+        public static void ContainsLINQ()
+        {
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Contains LINQ");
+
+            //pärib, kas number 10 on numbrite seas
+            //niimoodi saab iga numbriga teha
+            // kui paneme nr 5, siis tuleb vastuseks true
+            bool result = NumberList.numberList.Contains(5);
+
+            Console.WriteLine(result);
+        }
+
+        public static void AggregateLINQ()
+        {
+            string commaSeparatedPersonNames = PeopleList.peoples
+                .Aggregate<People, string>(
+                "People names: ",
+                (str, x) => str += x.Name + ", "
+                );
+
+            Console.WriteLine(commaSeparatedPersonNames);
+        }
+
+        public static void AvarageLINQ()
+        {
+            Console.WriteLine("Avarage LINQ");
+            //teha Avarage LINQ
+            //PeopleList Age kohta teha
+            var avarageResult = PeopleList.peoples
+                .Average(x => x.Age);
+
+            Console.WriteLine(avarageResult);
         }
     }
 }

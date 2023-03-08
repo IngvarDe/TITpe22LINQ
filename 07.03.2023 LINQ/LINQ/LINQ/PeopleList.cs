@@ -15,7 +15,7 @@ namespace LINQ
             {
                 Id = 1,
                 Name = "Moona",
-                Age = 11,
+                Age = 31,
                 GenderId = Guid.Parse("4c4209e5-7a1b-429d-91ed-bbe20844f29e")
             },
             new People()
@@ -43,7 +43,7 @@ namespace LINQ
             {
                 Id = 5,
                 Name = "Mari",
-                Age = 17,
+                Age = 19,
                 GenderId = Guid.Parse("4c4209e5-7a1b-429d-91ed-bbe20844f29e")
             },            
             new People()
