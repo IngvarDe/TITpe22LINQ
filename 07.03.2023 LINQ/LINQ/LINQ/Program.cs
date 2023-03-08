@@ -12,6 +12,8 @@
             ThenByDescendingLINQ();
             ToLookUpLINQ();
             JoinLINQ();
+            GroupJoinLINQ();
+            SelectLINQ();
         }
 
         public static void WhereLINQ()
@@ -118,6 +120,34 @@
                     Console.WriteLine(name.Name);
                 }
             }
+        }
+
+        public static void SelectLINQ()
+        {
+            Console.WriteLine("Select in LINQ");
+            //teha iseseisvalt LINQ Select
+            //otsida Internetist vastuseid
+            //lõpus kasutada foreachi
+
+            var selectLINQ = PeopleList.peoples
+                .Select(p =>  new
+                {
+                    name = p.Name,
+                    age = p.Age
+                });
+
+            foreach (var peopleName in selectLINQ)
+            {
+                Console.WriteLine(peopleName.name + " " + peopleName.age);
+            }
+        }
+
+        public static void AllAndAnyLINQ()
+        {
+            Console.WriteLine("All LINQ");
+
+            bool areAllPeopleTeenagers = PeopleList.peoples
+                .All(x => x.Age > 18);
         }
     }
 }
